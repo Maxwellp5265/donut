@@ -6,9 +6,9 @@ A terminal [donut](https://www.a1k0n.net/2011/07/20/donut-math.html) animation a
 
 ![Donut Demo](demo.gif)
 
-## Note
+## Note on GPU-Accelerated Terminals
 
-A GPU-accelerated terminal (such as [Alacritty](https://github.com/alacritty/alacritty), [Kitty](https://github.com/kovidgoyal/kitty), etc.) is not required, but it really enhances the animation experience.
+For the best animation experience, use a GPU-accelerated terminal emulator such as [Alacritty](https://github.com/alacritty/alacritty), [Kitty](https://github.com/kovidgoyal/kitty), or similar. While not required, these terminals can provide smoother and more vibrant visuals for the donut animation.
 
 ## Table of Contents
 

@@ -11,35 +11,57 @@ import (
 func (m *Model) View() tea.View {
 	var sb strings.Builder
 
+	// Preallocate the string builder.
 	size := clamp(m.Size(), 32768, 155648)
+	if m.emoji {
+		size = max(size, 81920)
+	}
+
 	sb.Grow(size)
 
 	if !m.mute {
 		m.writeHeader(&sb)
 	}
 
-	hpad := (m.w - DonutW) / 2
+	// Emojis are rendered twice as big as ascii chars.
 	vpad := (m.h - DonutH) / 2
+	if m.emoji {
+		vpad = (m.h - 2*DonutH) / 2
+	}
+
+	hpad, sp := (m.w-DonutW)/2, " "
+	if m.emoji {
+		hpad, sp = (m.w-2*DonutW)/2, "  "
+	}
 
 	for range vpad {
 		sb.WriteByte('\n')
 	}
 
 	for i := range DonutH {
-		for range hpad {
-			sb.WriteByte(' ')
+
+		// Each row of emojis is rendered twice to maintain the aspect ratio.
+		n := 1
+		if m.emoji {
+			n = 2
 		}
 
-		for j := range DonutW {
-			if m.depth[i*DonutW+j] == 0 {
+		for range n {
+			for range hpad {
 				sb.WriteByte(' ')
-				continue
 			}
 
-			s := m.grid[i*DonutW+j]
-			sb.WriteString(s.String())
+			for j := range DonutW {
+				if m.depth[i*DonutW+j] == 0 {
+					sb.WriteString(sp)
+					continue
+				}
+
+				s := m.grid[i*DonutW+j]
+				sb.WriteString(s.String())
+			}
+			sb.WriteByte('\n')
 		}
-		sb.WriteByte('\n')
 	}
 
 	v := tea.NewView(sb.String())
@@ -50,7 +72,8 @@ func (m *Model) View() tea.View {
 
 func (m *Model) writeHeader(sb *strings.Builder) {
 	const (
-		header0 = "fps [q]uit [m]ute [c]olor"
+		header0 = "fps [q]uit [m]ute [c]olor [e]moji"
+		header1 = "fps [q]uit [m]ute [a]scii"
 	)
 
 	var buf [24]byte
@@ -62,6 +85,12 @@ func (m *Model) writeHeader(sb *strings.Builder) {
 	}
 
 	sb.Write(s)
-	sb.WriteString(header0)
+
+	if m.emoji {
+		sb.WriteString(header1)
+	} else {
+		sb.WriteString(header0)
+	}
+
 	sb.WriteByte('\n')
 }

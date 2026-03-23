@@ -10,7 +10,7 @@ import (
 // Symbol represents a pair of color and character.
 type Symbol struct {
 	color.RGBA
-	byte
+	rune
 }
 
 // String returns the formatted ASCII string representation of the Symbol.
@@ -19,7 +19,7 @@ func (s Symbol) String() string {
 
 	if !ok {
 		style := getStyle()
-		str = style.Foreground(s.RGBA).Render(string(s.byte))
+		str = style.Foreground(s.RGBA).Render(string(s.rune))
 
 		setCache(s, str)
 		putStyle(style)

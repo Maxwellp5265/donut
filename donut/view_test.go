@@ -24,6 +24,7 @@ func BenchmarkView(b *testing.B) {
 
 			func(b *testing.B) {
 				m := NewModel(sz.h, sz.w)
+				m.emoji = true
 
 				for range 10 {
 					m.step()

@@ -85,7 +85,7 @@ func TestModelStep(t *testing.T) {
 	// After step, grid should be filled with Symbol, depth updated
 	nonEmpty := 0
 	for _, s := range m.grid {
-		if s.byte != 0 && s.byte != ' ' {
+		if s.rune != 0 && s.rune != ' ' {
 			nonEmpty++
 		}
 	}

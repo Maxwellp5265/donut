@@ -25,6 +25,7 @@ A terminal [donut](https://www.a1k0n.net/2011/07/20/donut-math.html) animation a
 
 - Real-time optimized 3D simulation based on sloane's rotating [donut](https://www.a1k0n.net/2011/07/20/donut-math.html)
 - Colorful, animated terminal output for modern terminal emulators
+- 🚀 Emoji render mode
 - Hardwired 60FPS ASCII rendering on most computers
 - 300μs allocation free core loop (Apple Silicon M1)
 

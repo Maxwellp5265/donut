@@ -7,7 +7,7 @@ import (
 )
 
 func TestSymbolString(t *testing.T) {
-	sym := Symbol{RGBA: color.RGBA{}, byte: '$'}
+	sym := Symbol{RGBA: color.RGBA{}, rune: '$'}
 	str := sym.String()
 
 	if str == "" {

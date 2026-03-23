@@ -14,6 +14,7 @@ type Model struct {
 	a, b int
 
 	color int
+	emoji bool
 	mute  bool
 }
 
@@ -44,6 +45,11 @@ func (m *Model) step() {
 	clear(m.depth)
 	clear(m.grid)
 
+	cars, dw, xdiv := ASCII, DonutW, 2
+	if m.emoji {
+		cars, dw, xdiv = Emoji, DonutW*2, 4
+	}
+
 	for j := range sinTable7 {
 		for i := range sinTable2 {
 			si, ci := sinTable2[i], cosTable2[i]
@@ -54,11 +60,11 @@ func (m *Model) step() {
 			z := 1 / (si*cjp2*sa + sj*ca + 5)
 			t := si*cjp2*ca - sj*sa
 
-			x := DonutW/2 + int(30*z*(ci*cjp2*cb-t*sb))
+			x := dw/xdiv + int(30*z*(ci*cjp2*cb-t*sb))
 			y := DonutH/2 + int(15*z*(ci*cjp2*sb+t*cb))
 
 			// Skip points outside the screen
-			if x < 0 || x >= DonutW || y < 0 || y >= DonutH {
+			if x < 0 || x >= dw || y < 0 || y >= DonutH {
 				continue
 			}
 
@@ -72,7 +78,7 @@ func (m *Model) step() {
 			if z > m.depth[ii] {
 				m.depth[ii] = z
 				m.grid[ii] = Symbol{
-					byte: ".,-~:;=!*#$@"[lumi],
+					rune: cars[lumi],
 					RGBA: blend(m.color, lumi, 0.5),
 				}
 			}

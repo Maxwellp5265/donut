@@ -21,6 +21,10 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg.String() {
 		case "c":
 			m.color = nextColor(m.color)
+		case "a":
+			m.emoji = false
+		case "e":
+			m.emoji = true
 		case "m":
 			m.mute = !m.mute
 		case "q", "ctrl+c":

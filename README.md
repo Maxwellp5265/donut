@@ -6,6 +6,10 @@ A terminal [donut](https://www.a1k0n.net/2011/07/20/donut-math.html) animation a
 
 ![Donut Demo](demo.gif)
 
+## Note
+
+A GPU-accelerated terminal (such as [Alacritty](https://github.com/alacritty/alacritty), [Kitty](https://github.com/kovidgoyal/kitty), etc.) is not required, but it really enhances the animation experience.
+
 ## Table of Contents
 
 - [Requirements](#requirements)

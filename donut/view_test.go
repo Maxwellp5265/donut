@@ -19,12 +19,11 @@ func BenchmarkView(b *testing.B) {
 	}
 
 	for _, sz := range sizes {
-		b.Run(
-			fmt.Sprintf("%dx%d", sz.w, sz.h),
-
-			func(b *testing.B) {
+		for _, emoji := range []bool{false, true} {
+			name := fmt.Sprintf("%dx%d/emoji=%v", sz.w, sz.h, emoji)
+			b.Run(name, func(b *testing.B) {
 				m := NewModel(sz.h, sz.w)
-				m.emoji = true
+				m.emoji = emoji
 
 				for range 10 {
 					m.step()
@@ -33,7 +32,7 @@ func BenchmarkView(b *testing.B) {
 				for b.Loop() {
 					m.View()
 				}
-			},
-		)
+			})
+		}
 	}
 }

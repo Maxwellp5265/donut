@@ -63,11 +63,6 @@ func (m *Model) step() {
 			x := dw/xdiv + int(30*z*(ci*cjp2*cb-t*sb))
 			y := DonutH/2 + int(15*z*(ci*cjp2*sb+t*cb))
 
-			// Skip points outside the screen
-			if x < 0 || x >= dw || y < 0 || y >= DonutH {
-				continue
-			}
-
 			lumi := byte(clamp(
 				int(9*((sj*sa-si*cj*ca)*cb-si*cj*sa-sj*ca-ci*cj*sb)),
 				0, 11,

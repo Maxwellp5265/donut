@@ -38,7 +38,11 @@ func (m *Model) View() tea.View {
 		sb.WriteByte('\n')
 	}
 
-	for i := range DonutH {
+	idx := func(r, c int) int {
+		return r*DonutW + c
+	}
+
+	for i := range min(DonutH, m.h) {
 
 		// Each row of emojis is rendered twice to maintain the aspect ratio.
 		n := 1
@@ -51,13 +55,13 @@ func (m *Model) View() tea.View {
 				sb.WriteByte(' ')
 			}
 
-			for j := range DonutW {
-				if m.depth[i*DonutW+j] == 0 {
+			for j := range min(DonutW, m.w) {
+				if m.depth[idx(i, j)] == 0 {
 					sb.WriteString(sp)
 					continue
 				}
 
-				s := m.grid[i*DonutW+j]
+				s := m.grid[idx(i, j)]
 				sb.WriteString(s.String())
 			}
 			sb.WriteByte('\n')

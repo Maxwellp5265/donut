@@ -8,7 +8,7 @@ build:
 	go build -o $(BIN) ./cmd/donut/main.go
 
 run:
-	go run ./cmd/donut/main.go
+	go run ./cmd/donut/main.go $(ARGS)
 
 test:
 	go test ./...

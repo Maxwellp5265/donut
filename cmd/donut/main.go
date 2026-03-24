@@ -1,15 +1,26 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 
 	tea "charm.land/bubbletea/v2"
 	"github.com/erik-adelbert/donut/donut"
+	"github.com/erik-adelbert/donut/pkg/epilepsy"
 	"golang.org/x/term"
 )
 
 func main() {
+	noWarning := flag.Bool("no-warning", false, "Skip the epilepsy warning screen")
+	flag.Parse()
+
+	if !*noWarning {
+		if ok := epilepsy.Warn(); !ok {
+			return
+		}
+	}
+
 	w, h, err := term.GetSize(int(os.Stdin.Fd()))
 
 	if err != nil {

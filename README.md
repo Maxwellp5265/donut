@@ -4,7 +4,7 @@ A terminal [donut](https://www.a1k0n.net/2011/07/20/donut-math.html) animation a
 
 ## Demo
 
-![Donut Demo](demo.gif)
+![Donut Demo](https://github.com/user-attachments/assets/8742f608-23d6-422b-8e67-a1d431162e90)
 
 ## Note on GPU-Accelerated Terminals
 

